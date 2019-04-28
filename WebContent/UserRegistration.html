@@ -66,6 +66,16 @@ a {
 	text-align: center;
 }
 </style>
+<script >
+   function validateName() {
+	   var name = document.forms[0]["name"];
+	   if(name.value != "Lalatendu") {
+		   alert("You cannot give other name except Lalatendu ");
+		  // return false;
+	   }
+   }
+   
+</script>
 </head>
 <body>
 <form action="action_page.php">
@@ -73,7 +83,12 @@ a {
     <h1>Register</h1>
     <p>Please fill in this form to create an account.</p>
     <hr>
-
+    
+    <label for="Name"><b>Name</b></label>
+    <input type="text" placeholder="Enter Name" name="name"  required>
+    
+    <button ondblclick="validateName()">Double Click to Validate Name</button>
+    <br/><br/><br/>
     <label for="email"><b>Email</b></label>
     <input type="text" placeholder="Enter Email" name="email" min="1"  required>
 
