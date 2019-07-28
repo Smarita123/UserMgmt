@@ -68,13 +68,16 @@ a {
 </style>
 <script  type="text/javascript">
    function getAddress() {
+	   
 	   console.log("Inside getAddress method")
 	   var name = document.getElementById("organisation").value;
+	   console.log(name);
 		if(name == "Paymentz") {
 		   document.getElementById("address").value = "Mumbai";
 	   } else if(name == "Wipro") {
-		   alert(name);
 		   document.getElementById("address").value = "Bangalore";
+	   } else {
+		   document.getElementById("address").value = "NA";
 	   }
    }
    
@@ -90,7 +93,18 @@ a {
 	  }
    }
 
+   function validateFieldsOnAlert() {
+   }
    
+   function validateEmailField() {
+	  confirm("Do you want to validate email field");
+   }
+   
+   function fillName() {
+	   var name = prompt("Please enter your name:", "Harry Potter");
+	   document.getElementById("name").value=name;
+  }
+
 </script>
 </head>
 <body>
@@ -101,8 +115,9 @@ a {
     <hr>
     
     <label for="Name"><b>Name</b></label>
-    <input type="text" placeholder="Enter Name" name="name">
-    
+    <input type="text" placeholder="Enter Name" id ="name" name="name">
+    <button onclick="fillName()">Click here to fill Name field</button>
+    <br/><br/><br/>
     <button onclick="getProfession()">Click here to get profession</button>
     <br/><br/><br/>
     <label for="Profession"><b>Profession</b></label>
@@ -118,7 +133,7 @@ a {
     
     
     <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="email" min="1" required >
+    <input type="text" placeholder="Enter Email" name="email" min="1" onchange="validateEmailField()" required  >
 
     <label for="psw"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="psw" required>
@@ -154,15 +169,24 @@ a {
              Female <input type="radio" name="gender" value="female">
              <span class="checkmark"></span>
 	   </label>
+	   <br/> <br/>
+	    <b>Vehicle</b>
+	       <ul id="vehicle">
+	       <li>Four Wheeler</li>
+	       <li>Three Wheeler</li>
+	       <li>Two Wheeler</li>
+	    
+	    
+	   </ul>
 	   
 	<hr>
 
     <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
-    <button type="submit" class="registerbtn">Register</button>
+    <button type="submit" class="registerbtn" onclick="conirmValidations()">Register</button>
   </div>
 
   <div class="container signin">
-    <p>Already have an account? <a href="#">Sign in</a>.</p>
+    <p>Already have an account? <a href="#" onclick="validateFieldsOnAlert()">Sign in</a>.</p>
   </div>
 </form>
 
